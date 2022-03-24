@@ -4,14 +4,12 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import logo from "./logo.svg";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import EditExpense from "./components/edit-expense.component";
-import ExpensesList from "./components/expense-listing.component";
+import ExpensesList from "./components/expenses-listing.component";
 import CreateExpense from "./components/create-expense.component";
 
 function App() {
@@ -45,12 +43,12 @@ function App() {
           <Row>
             <Col md={12}>
               <div className="wrapper">
-                <Switch>
-                  <Route exact path="/" component={CreateExpense} />
-                  <Route path="/create-expense" component={CreateExpense} />
-                  <Route path="/edit-expense/:id" component={EditExpense} />
-                  <Route path="/expenses-listing" component={ExpensesList} />
-                </Switch>
+                <Routes>
+                  <Route exact path="/" element={CreateExpense} />
+                  <Route path="/create-expense" element={CreateExpense} />
+                  <Route path="/edit-expense/:id" element={EditExpense} />
+                  <Route path="/expenses-listing" element={ExpensesList} />
+                </Routes>
               </div>
             </Col>
           </Row>
