@@ -1,9 +1,5 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -14,7 +10,7 @@ import CreateExpense from "./components/create-expense.component";
 
 function App() {
   return (
-    <Router>
+    <>
       <div className="App">
         <header className="App-header">
           <Navbar bg="success" variant="success">
@@ -44,17 +40,17 @@ function App() {
             <Col md={12}>
               <div className="wrapper">
                 <Routes>
-                  <Route exact path="/" element={CreateExpense} />
-                  <Route path="/create-expense" element={CreateExpense} />
-                  <Route path="/edit-expense/:id" element={EditExpense} />
-                  <Route path="/expenses-listing" element={ExpensesList} />
+                  <Route exact path="/" component={CreateExpense} />
+                  <Route path="/create-expense" component={CreateExpense} />
+                  <Route path="/edit-expense/:id" component={EditExpense} />
+                  <Route path="/expenses-listing" component={ExpensesList} />
                 </Routes>
               </div>
             </Col>
           </Row>
         </Container>
       </div>
-    </Router>
+    </>
   );
 }
 
